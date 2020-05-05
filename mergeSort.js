@@ -1,20 +1,28 @@
 // merge function
-const merge = (a = [], b = []) => {
+ const merge = (l = [], r = []) => {
   let arr = [];
-
-  let l = [...a, Infinity];
-  let r = [...b, Infinity];
 
   let i = 0;
   let j = 0;
 
-  while (i < l.length - 1 || j < r.length - 1) {
-    if (l[i] <= r[j]) arr.push(l[i++]);
-    else if (r[j] <= l[i]) arr.push(r[j++]);
+  while (i < l.length || j < r.length) {
+    if (isNumber(l[i]) && isNumber(r[j])) {
+      if (l[i] <= r[j]) arr.push(l[i++]);
+      if (r[j] <= l[i]) arr.push(r[j++]);
+    }
+    
+    else if (isNumber(l[i])) arr.push(l[i++]);
+    else if (isNumber(r[j])) arr.push(r[j++]);
   }
 
   return arr;
 };
+
+// utility
+function isNumber(x) {
+  if ((x > 0 || x < 0 || x === 0) && typeof x === "number") return true;
+  else return false;
+}
 
 // break into smaller pieces
 function binaryBreak(arr) {
@@ -30,6 +38,8 @@ function binaryBreak(arr) {
 
 // final sorting function
 export function mergeSort(arr) {
+  if(!arr) return null
+
   // sorted - only one value or no value
   if (arr.length <= 1) return arr;
 
@@ -40,6 +50,3 @@ export function mergeSort(arr) {
   // sorted
   return merged;
 }
-
-
-// Todo: Check for Infinity Case
