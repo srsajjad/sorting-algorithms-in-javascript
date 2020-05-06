@@ -1,5 +1,5 @@
 // merge function
- const merge = (l = [], r = []) => {
+function merge(l = [], r = []) {
   let arr = [];
 
   let i = 0;
@@ -9,14 +9,12 @@
     if (isNumber(l[i]) && isNumber(r[j])) {
       if (l[i] <= r[j]) arr.push(l[i++]);
       if (r[j] <= l[i]) arr.push(r[j++]);
-    }
-    
-    else if (isNumber(l[i])) arr.push(l[i++]);
+    } else if (isNumber(l[i])) arr.push(l[i++]);
     else if (isNumber(r[j])) arr.push(r[j++]);
   }
 
   return arr;
-};
+}
 
 // utility
 function isNumber(x) {
@@ -38,7 +36,7 @@ function binaryBreak(arr) {
 
 // final sorting function
 export function mergeSort(arr) {
-  if(!arr) return null
+  if (!arr) return null;
 
   // sorted - only one value or no value
   if (arr.length <= 1) return arr;
