@@ -8,6 +8,7 @@ export function insertionSort(arr) {
       if (!isFinite(prev)) break;
 
       if (curr > prev) break;
+      
       else {
         //swap
         arr[j] = prev;
