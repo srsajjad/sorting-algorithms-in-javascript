@@ -1,1 +1,1 @@
-A collection of sorting algorithms in JavaScript
+A collection of sorting algorithms written in JavaScript
